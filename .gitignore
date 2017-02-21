@@ -3,7 +3,7 @@
 bin
 obj
 Temp
-/src/Library
-/src/Assets/Plugins/Editor/Atom.cs
-/src/src.userprefs
-/*.unitypackage
+Library
+Assets/Plugins/Editor/Atom.cs
+src/src.userprefs
+*.unitypackage
