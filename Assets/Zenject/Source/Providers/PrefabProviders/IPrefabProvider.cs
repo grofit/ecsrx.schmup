@@ -8,7 +8,7 @@ namespace Zenject
 {
     public interface IPrefabProvider
     {
-        UnityEngine.Object GetPrefab();
+        GameObject GetPrefab();
     }
 }
 

@@ -14,12 +14,12 @@ namespace Zenject
 
     //No parameters
     public class PrefabFactory<T> : IValidatable
-        //where T : Component
+        where T : Component
     {
         [Inject]
         protected readonly DiContainer _container;
 
-        public T Create(UnityEngine.Object prefab)
+        public T Create(GameObject prefab)
         {
             Assert.That(prefab != null,
                "Null prefab given to factory create method when instantiating object with type '{0}'.", typeof(T));
@@ -37,22 +37,19 @@ namespace Zenject
 
         public void Validate()
         {
-            if (!typeof(T).IsAbstract())
-            {
-                _container.InjectExplicit(
-                    new ValidationMarker(typeof(T)), ValidationUtil.CreateDefaultArgs());
-            }
+            _container.InjectExplicit(
+                new ValidationMarker(typeof(T)), ValidationUtil.CreateDefaultArgs());
         }
     }
 
     // One parameter
     public class PrefabFactory<P1, T> : IValidatable
-        //where T : Component
+        where T : Component
     {
         [Inject]
         protected readonly DiContainer _container;
 
-        public virtual T Create(UnityEngine.Object prefab, P1 param)
+        public virtual T Create(GameObject prefab, P1 param)
         {
             Assert.That(prefab != null,
                "Null prefab given to factory create method when instantiating object with type '{0}'.", typeof(T));
@@ -71,23 +68,19 @@ namespace Zenject
 
         public void Validate()
         {
-            // If it's abstract, we can't check that the params are used
-            if (!typeof(T).IsAbstract())
-            {
-                _container.InjectExplicit(
-                    new ValidationMarker(typeof(T)), ValidationUtil.CreateDefaultArgs(typeof(P1)));
-            }
+            _container.InjectExplicit(
+                new ValidationMarker(typeof(T)), ValidationUtil.CreateDefaultArgs(typeof(P1)));
         }
     }
 
     // Two parameters
     public class PrefabFactory<P1, P2, T> : IValidatable
-        //where T : Component
+        where T : Component
     {
         [Inject]
         protected readonly DiContainer _container;
 
-        public virtual T Create(UnityEngine.Object prefab, P1 param, P2 param2)
+        public virtual T Create(GameObject prefab, P1 param, P2 param2)
         {
             Assert.That(prefab != null,
                "Null prefab given to factory create method when instantiating object with type '{0}'.", typeof(T));
@@ -106,23 +99,19 @@ namespace Zenject
 
         public void Validate()
         {
-            // If it's abstract, we can't check that the params are used
-            if (!typeof(T).IsAbstract())
-            {
-                _container.InjectExplicit(
-                    new ValidationMarker(typeof(T)), ValidationUtil.CreateDefaultArgs(typeof(P1), typeof(P2)));
-            }
+            _container.InjectExplicit(
+                new ValidationMarker(typeof(T)), ValidationUtil.CreateDefaultArgs(typeof(P1), typeof(P2)));
         }
     }
 
     // Three parameters
     public class PrefabFactory<P1, P2, P3, T> : IValidatable
-        //where T : Component
+        where T : Component
     {
         [Inject]
         protected readonly DiContainer _container;
 
-        public virtual T Create(UnityEngine.Object prefab, P1 param, P2 param2, P3 param3)
+        public virtual T Create(GameObject prefab, P1 param, P2 param2, P3 param3)
         {
             Assert.That(prefab != null,
                "Null prefab given to factory create method when instantiating object with type '{0}'.", typeof(T));
@@ -141,24 +130,20 @@ namespace Zenject
 
         public void Validate()
         {
-            // If it's abstract, we can't check that the params are used
-            if (!typeof(T).IsAbstract())
-            {
-                _container.InjectExplicit(
-                    new ValidationMarker(typeof(T)),
+            _container.InjectExplicit(
+                new ValidationMarker(typeof(T)),
                     ValidationUtil.CreateDefaultArgs(typeof(P1), typeof(P2), typeof(P3)));
-            }
         }
     }
 
     // Four parameters
     public class PrefabFactory<P1, P2, P3, P4, T> : IValidatable
-        //where T : Component
+        where T : Component
     {
         [Inject]
         protected readonly DiContainer _container;
 
-        public virtual T Create(UnityEngine.Object prefab, P1 param, P2 param2, P3 param3, P4 param4)
+        public virtual T Create(GameObject prefab, P1 param, P2 param2, P3 param3, P4 param4)
         {
             Assert.That(prefab != null,
                "Null prefab given to factory create method when instantiating object with type '{0}'.", typeof(T));
@@ -177,13 +162,9 @@ namespace Zenject
 
         public void Validate()
         {
-            // If it's abstract, we can't check that the params are used
-            if (!typeof(T).IsAbstract())
-            {
-                _container.InjectExplicit(
-                    new ValidationMarker(typeof(T)),
-                    ValidationUtil.CreateDefaultArgs(typeof(P1), typeof(P2), typeof(P3), typeof(P4)));
-            }
+            _container.InjectExplicit(
+                new ValidationMarker(typeof(T)),
+                ValidationUtil.CreateDefaultArgs(typeof(P1), typeof(P2), typeof(P3), typeof(P4)));
         }
     }
 }

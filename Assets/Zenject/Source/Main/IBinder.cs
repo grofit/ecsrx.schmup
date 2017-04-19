@@ -26,22 +26,22 @@ namespace Zenject
 
         // _____ BindFactory<> _____
         // TBD
-        FactoryToChoiceIdBinder<TContract> BindFactory<TContract, TFactory>()
+        FactoryToChoiceBinder<TContract> BindFactory<TContract, TFactory>()
             where TFactory : Factory<TContract>;
 
-        FactoryToChoiceIdBinder<TParam1, TContract> BindFactory<TParam1, TContract, TFactory>()
+        FactoryToChoiceBinder<TParam1, TContract> BindFactory<TParam1, TContract, TFactory>()
             where TFactory : Factory<TParam1, TContract>;
 
-        FactoryToChoiceIdBinder<TParam1, TParam2, TContract> BindFactory<TParam1, TParam2, TContract, TFactory>()
+        FactoryToChoiceBinder<TParam1, TParam2, TContract> BindFactory<TParam1, TParam2, TContract, TFactory>()
             where TFactory : Factory<TParam1, TParam2, TContract>;
 
-        FactoryToChoiceIdBinder<TParam1, TParam2, TParam3, TContract> BindFactory<TParam1, TParam2, TParam3, TContract, TFactory>()
+        FactoryToChoiceBinder<TParam1, TParam2, TParam3, TContract> BindFactory<TParam1, TParam2, TParam3, TContract, TFactory>()
             where TFactory : Factory<TParam1, TParam2, TParam3, TContract>;
 
-        FactoryToChoiceIdBinder<TParam1, TParam2, TParam3, TParam4, TContract> BindFactory<TParam1, TParam2, TParam3, TParam4, TContract, TFactory>()
+        FactoryToChoiceBinder<TParam1, TParam2, TParam3, TParam4, TContract> BindFactory<TParam1, TParam2, TParam3, TParam4, TContract, TFactory>()
             where TFactory : Factory<TParam1, TParam2, TParam3, TParam4, TContract>;
 
-        FactoryToChoiceIdBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TContract> BindFactory<TParam1, TParam2, TParam3, TParam4, TParam5, TContract, TFactory>()
+        FactoryToChoiceBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TContract> BindFactory<TParam1, TParam2, TParam3, TParam4, TParam5, TContract, TFactory>()
             where TFactory : Factory<TParam1, TParam2, TParam3, TParam4, TParam5, TContract>;
 
         // _____ BindAllInterfaces _____
@@ -110,27 +110,18 @@ namespace Zenject
         void InstallExplicit(Type installerType, List<TypeValuePair> extraArgs);
 
 #if !NOT_UNITY3D
-        // _____ InstallPrefabResource _____
-        void InstallPrefabResource(Type installerType, string resourcePath, IEnumerable<object> extraArgs);
-        void InstallPrefabResource(Type installerType, IEnumerable<object> extraArgs);
-        void InstallPrefabResource(Type installerType, string resourcePath);
-        void InstallPrefabResource(Type installerType);
-
-        void InstallPrefabResource<T>(string resourcePath, IEnumerable<object> extraArgs)
+        // _____ InstallPrefab _____
+        void InstallPrefab<T>()
             where T : MonoInstaller;
 
-        void InstallPrefabResource<T>(IEnumerable<object> extraArgs)
+        void InstallPrefab<T>(IEnumerable<object> extraArgs)
             where T : MonoInstaller;
 
-        void InstallPrefabResource<T>(string resourcePath)
-            where T : MonoInstaller;
-
-        void InstallPrefabResource<T>()
-            where T : MonoInstaller;
+        void InstallPrefab(Type installerType);
+        void InstallPrefab(Type installerType, IEnumerable<object> extraArgs);
 
         // This is only necessary if you have to pass in null values as parameters to the installer
-        void InstallPrefabResourceExplicit(
-            Type installerType, string resourcePath, List<TypeValuePair> extraArgs);
+        void InstallPrefabExplicit(Type installerType, List<TypeValuePair> extraArgs);
 
         // _____ InstallScriptableObject _____
 

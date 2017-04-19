@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 namespace Zenject
 {
     [System.Diagnostics.DebuggerStepThrough]
-    public class SceneDecoratorContext : MonoBehaviour
+    public sealed class SceneDecoratorContext : MonoBehaviour
     {
         public string SceneName;
 

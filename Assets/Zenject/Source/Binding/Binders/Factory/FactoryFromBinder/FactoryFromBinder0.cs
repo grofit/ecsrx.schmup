@@ -1,5 +1,6 @@
 using System;
-using System.Collections.Generic;
+using ModestTree;
+using System.Linq;
 
 namespace Zenject
 {
@@ -13,12 +14,12 @@ namespace Zenject
         {
         }
 
-        public ConditionBinder FromResolveGetter<TObj>(Func<TObj, TContract> method)
+        public ConditionBinder FromGetter<TObj>(Func<TObj, TContract> method)
         {
-            return FromResolveGetter<TObj>(null, method);
+            return FromGetter<TObj>(null, method);
         }
 
-        public ConditionBinder FromResolveGetter<TObj>(
+        public ConditionBinder FromGetter<TObj>(
             object subIdentifier, Func<TObj, TContract> method)
         {
             SubFinalizer = CreateFinalizer(
@@ -49,7 +50,7 @@ namespace Zenject
             where TSubFactory : IFactory<TContract>
         {
             SubFinalizer = CreateFinalizer(
-                (container) => new FactoryProvider<TContract, TSubFactory>(container, new List<TypeValuePair>()));
+                (container) => new FactoryProvider<TContract, TSubFactory>(container));
 
             return this;
         }

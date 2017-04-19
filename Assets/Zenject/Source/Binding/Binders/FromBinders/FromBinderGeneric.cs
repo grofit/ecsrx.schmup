@@ -39,24 +39,19 @@ namespace Zenject
             return FromMethodBase<TContract>(method);
         }
 
-        public ScopeBinder FromResolveGetter<TObj>(Func<TObj, TContract> method)
+        public ScopeBinder FromGetter<TObj>(Func<TObj, TContract> method)
         {
-            return FromResolveGetter<TObj>(null, method);
+            return FromGetter<TObj>(null, method);
         }
 
-        public ScopeBinder FromResolveGetter<TObj>(object identifier, Func<TObj, TContract> method)
+        public ScopeBinder FromGetter<TObj>(object identifier, Func<TObj, TContract> method)
         {
-            return FromResolveGetterBase<TObj, TContract>(identifier, method);
+            return FromGetterBase<TObj, TContract>(identifier, method);
         }
 
         public ScopeBinder FromInstance(TContract instance)
         {
-            return FromInstance(instance, false);
-        }
-
-        public ScopeBinder FromInstance(TContract instance, bool allowNull)
-        {
-            return FromInstanceBase(instance, allowNull);
+            return FromInstanceBase(instance);
         }
     }
 }

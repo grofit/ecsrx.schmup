@@ -145,7 +145,7 @@ namespace Zenject
             return new GameObjectNameGroupNameScopeArgBinder(BindInfo, gameObjectInfo);
         }
 
-        public GameObjectNameGroupNameScopeArgBinder FromPrefab(UnityEngine.Object prefab)
+        public GameObjectNameGroupNameScopeArgBinder FromPrefab(GameObject prefab)
         {
             BindingUtil.AssertIsValidPrefab(prefab);
             BindingUtil.AssertIsAbstractOrComponentOrGameObject(AllParentTypes);
@@ -206,12 +206,12 @@ namespace Zenject
             SubFinalizer = new ScopableBindingFinalizer(
                 BindInfo,
                 SingletonTypes.ToFactory, typeof(TFactory),
-                (container, type) => new FactoryProvider<TConcrete, TFactory>(container, new List<TypeValuePair>()));
+                (container, type) => new FactoryProvider<TConcrete, TFactory>(container));
 
             return new ScopeBinder(BindInfo);
         }
 
-        protected ScopeBinder FromResolveGetterBase<TObj, TResult>(
+        protected ScopeBinder FromGetterBase<TObj, TResult>(
             object identifier, Func<TObj, TResult> method)
         {
             BindingUtil.AssertIsDerivedFromTypes(typeof(TResult), AllParentTypes);
@@ -225,15 +225,8 @@ namespace Zenject
             return new ScopeBinder(BindInfo);
         }
 
-        protected ScopeBinder FromInstanceBase(object instance, bool allowNull)
+        protected ScopeBinder FromInstanceBase(object instance)
         {
-            if (!allowNull)
-            {
-                Assert.That(!ZenUtilInternal.IsNull(instance),
-                    "Found null instance for type '{0}' in FromInstance method",
-                    ConcreteTypes.First().Name());
-            }
-
             BindingUtil.AssertInstanceDerivesFromOrEqual(instance, AllParentTypes);
 
             SubFinalizer = new ScopableBindingFinalizer(

@@ -83,11 +83,12 @@ namespace Zenject
             {
                 ExtraArgs = _extraArguments.Concat(args).ToList(),
                 UseAllArgs = true,
+                TypeInfo = TypeAnalyzer.GetInfo(_componentType),
                 Context = context,
                 ConcreteIdentifier = _concreteIdentifier,
             };
 
-            _container.InjectExplicit(instance, _componentType, injectArgs);
+            _container.InjectExplicit(instance, injectArgs);
 
             Assert.That(injectArgs.ExtraArgs.IsEmpty());
         }

@@ -18,12 +18,6 @@ namespace Zenject
         Concrete,
     }
 
-    public enum InvalidBindResponses
-    {
-        Assert,
-        Skip,
-    }
-
     public class BindInfo
     {
         public BindInfo(List<Type> contractTypes)
@@ -36,7 +30,6 @@ namespace Zenject
             InheritInSubContainers = false;
             NonLazy = false;
             Scope = ScopeTypes.Transient;
-            InvalidBindResponse = InvalidBindResponses.Assert;
         }
 
         public BindInfo(Type contractType)
@@ -62,12 +55,6 @@ namespace Zenject
         }
 
         public bool InheritInSubContainers
-        {
-            get;
-            set;
-        }
-
-        public InvalidBindResponses InvalidBindResponse
         {
             get;
             set;

@@ -25,7 +25,7 @@ namespace Zenject
         }
 
         public IProvider CreateProvider(
-            Type resultType, string concreteIdentifier, UnityEngine.Object prefab, object identifier,
+            Type resultType, string concreteIdentifier, GameObject prefab, object identifier,
             string gameObjectName, string gameObjectGroupName)
         {
             _markRegistry.MarkSingleton(
@@ -62,9 +62,9 @@ namespace Zenject
         class CustomSingletonId : IEquatable<CustomSingletonId>
         {
             public readonly string ConcreteIdentifier;
-            public readonly UnityEngine.Object Prefab;
+            public readonly GameObject Prefab;
 
-            public CustomSingletonId(string concreteIdentifier, UnityEngine.Object prefab)
+            public CustomSingletonId(string concreteIdentifier, GameObject prefab)
             {
                 ConcreteIdentifier = concreteIdentifier;
                 Prefab = prefab;

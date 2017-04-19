@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using ModestTree;
 
 namespace Zenject
@@ -44,30 +43,17 @@ namespace Zenject
             return WithAttribute(typeof(T));
         }
 
-        public ConventionFilterTypesBinder WithAttribute(Type attribute)
-        {
-            Assert.That(attribute.DerivesFrom<Attribute>());
-            BindInfo.AddTypeFilter(t => t.HasAttribute(attribute));
-            return this;
-        }
-
-        public ConventionFilterTypesBinder WithoutAttribute<T>()
-            where T : Attribute
-        {
-            return WithoutAttribute(typeof(T));
-        }
-
-        public ConventionFilterTypesBinder WithoutAttribute(Type attribute)
-        {
-            Assert.That(attribute.DerivesFrom<Attribute>());
-            BindInfo.AddTypeFilter(t => !t.HasAttribute(attribute));
-            return this;
-        }
-
         public ConventionFilterTypesBinder WithAttributeWhere<T>(Func<T, bool> predicate)
             where T : Attribute
         {
             BindInfo.AddTypeFilter(t => t.HasAttribute<T>() && t.AllAttributes<T>().All(predicate));
+            return this;
+        }
+
+        public ConventionFilterTypesBinder WithAttribute(Type attribute)
+        {
+            Assert.That(attribute.DerivesFrom<Attribute>());
+            BindInfo.AddTypeFilter(t => t.HasAttribute(attribute));
             return this;
         }
 
@@ -90,34 +76,6 @@ namespace Zenject
         public ConventionFilterTypesBinder InNamespaces(IEnumerable<string> namespaces)
         {
             BindInfo.AddTypeFilter(t => namespaces.Any(n => IsInNamespace(t, n)));
-            return this;
-        }
-
-        public ConventionFilterTypesBinder WithSuffix(string suffix)
-        {
-            BindInfo.AddTypeFilter(t => t.Name.EndsWith(suffix));
-            return this;
-        }
-
-        public ConventionFilterTypesBinder WithPrefix(string prefix)
-        {
-            BindInfo.AddTypeFilter(t => t.Name.StartsWith(prefix));
-            return this;
-        }
-
-        public ConventionFilterTypesBinder MatchingRegex(string pattern)
-        {
-            return MatchingRegex(pattern, RegexOptions.None);
-        }
-
-        public ConventionFilterTypesBinder MatchingRegex(string pattern, RegexOptions options)
-        {
-            return MatchingRegex(new Regex(pattern, options));
-        }
-
-        public ConventionFilterTypesBinder MatchingRegex(Regex regex)
-        {
-            BindInfo.AddTypeFilter(t => regex.IsMatch(t.Name));
             return this;
         }
 

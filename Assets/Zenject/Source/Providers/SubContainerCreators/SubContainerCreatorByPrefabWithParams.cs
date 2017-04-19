@@ -42,7 +42,7 @@ namespace Zenject
             foreach (var argPair in args)
             {
                 tempSubContainer.Bind(argPair.Type)
-                    .FromInstance(argPair.Value, true).WhenInjectedInto(_installerType);
+                    .FromInstance(argPair.Value).WhenInjectedInto(_installerType);
             }
 
             return tempSubContainer;

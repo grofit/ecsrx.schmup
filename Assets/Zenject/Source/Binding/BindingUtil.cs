@@ -19,7 +19,7 @@ namespace Zenject
     {
 #if !NOT_UNITY3D
 
-        public static void AssertIsValidPrefab(UnityEngine.Object prefab)
+        public static void AssertIsValidPrefab(GameObject prefab)
         {
             Assert.That(!ZenUtilInternal.IsNull(prefab), "Received null prefab during bind command");
 
@@ -236,19 +236,6 @@ namespace Zenject
         {
             Assert.That(installerType.DerivesFrom<Installer>(),
                 "Invalid installer type given during bind command.  Expected type '{0}' to derive from 'Installer'", installerType.Name());
-        }
-
-        public static void AssertIsDerivedFromTypes(
-            IEnumerable<Type> concreteTypes, IEnumerable<Type> parentTypes, InvalidBindResponses invalidBindResponse)
-        {
-            if (invalidBindResponse == InvalidBindResponses.Assert)
-            {
-                AssertIsDerivedFromTypes(concreteTypes, parentTypes);
-            }
-            else
-            {
-                Assert.IsEqual(invalidBindResponse, InvalidBindResponses.Skip);
-            }
         }
 
         public static void AssertIsDerivedFromTypes(IEnumerable<Type> concreteTypes, IEnumerable<Type> parentTypes)

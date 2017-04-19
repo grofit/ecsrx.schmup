@@ -54,7 +54,7 @@ namespace Zenject
             }
         }
 
-        public UnityEngine.Object GetPrefab()
+        public GameObject GetPrefab()
         {
             return _prefabProvider.GetPrefab();
         }

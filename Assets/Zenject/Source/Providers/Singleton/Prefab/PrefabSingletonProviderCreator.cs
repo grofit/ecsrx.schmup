@@ -25,7 +25,7 @@ namespace Zenject
         }
 
         public IProvider CreateProvider(
-            UnityEngine.Object prefab, Type resultType, string gameObjectName, string gameObjectGroupName,
+            GameObject prefab, Type resultType, string gameObjectName, string gameObjectGroupName,
             List<TypeValuePair> extraArguments, string concreteIdentifier)
         {
             IPrefabInstantiator creator;
@@ -67,9 +67,9 @@ namespace Zenject
         class PrefabId : IEquatable<PrefabId>
         {
             public readonly string ConcreteIdentifier;
-            public readonly UnityEngine.Object Prefab;
+            public readonly GameObject Prefab;
 
-            public PrefabId(string concreteIdentifier, UnityEngine.Object prefab)
+            public PrefabId(string concreteIdentifier, GameObject prefab)
             {
                 Assert.IsNotNull(prefab);
 

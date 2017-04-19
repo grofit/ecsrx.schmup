@@ -1,15 +1,12 @@
 #if !NOT_UNITY3D
 
-using System;
 using UnityEngine;
 using System.Collections;
 using Zenject;
 
 namespace Zenject
 {
-    // We'd prefer to make this abstract but Unity 5.3.5 has a bug where references
-    // can get lost during compile errors for classes that are abstract
-    public class ScriptableObjectInstaller : ScriptableObject, IInstaller
+    public abstract class ScriptableObjectInstaller : ScriptableObject, IInstaller
     {
         [Inject]
         DiContainer _container = null;
@@ -30,10 +27,7 @@ namespace Zenject
             }
         }
 
-        public virtual void InstallBindings()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void InstallBindings();
     }
 }
 

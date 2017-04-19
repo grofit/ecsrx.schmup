@@ -10,15 +10,15 @@ namespace Zenject
 {
     public class PrefabProvider : IPrefabProvider
     {
-        readonly UnityEngine.Object _prefab;
+        readonly GameObject _prefab;
 
-        public PrefabProvider(UnityEngine.Object prefab)
+        public PrefabProvider(GameObject prefab)
         {
             Assert.IsNotNull(prefab);
             _prefab = prefab;
         }
 
-        public UnityEngine.Object GetPrefab()
+        public GameObject GetPrefab()
         {
             return _prefab;
         }

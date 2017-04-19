@@ -22,7 +22,7 @@ namespace Zenject
         public static ZenjectTypeInfo GetInfo(Type type)
         {
             Assert.That(!type.IsAbstract(),
-                "Tried to analyze abstract type '{0}'.  This is not currently allowed.", type.Name());
+                "Tried to analyze abstract type '{0}'", type.Name());
 
             ZenjectTypeInfo info;
 
@@ -231,8 +231,7 @@ namespace Zenject
         static bool IsWp8GeneratedConstructor(ConstructorInfo c)
         {
             ParameterInfo[] args = c.GetParameters();
-            return ( (args.Length == 1) && args[0].ParameterType == typeof(UIntPtr) && (args[0].Name == null || args[0].Name == "dummy") ) ||
-                ( (args.Length == 2) && args[0].ParameterType == typeof(UIntPtr) && (args[0].Name == null) && args[1].ParameterType == typeof(Int64*) && (args[1].Name == null) );
+            return args.Length == 1 && args[0].ParameterType == typeof(UIntPtr) && args[0].Name == "dummy";
         }
 #endif
     }

@@ -19,13 +19,13 @@ namespace Zenject
 
 #if !NOT_UNITY3D
 
-        public GameObjectNameGroupNameBinder ByPrefab<TInstaller>(UnityEngine.Object prefab)
+        public GameObjectNameGroupNameBinder ByPrefab<TInstaller>(GameObject prefab)
             where TInstaller : IInstaller
         {
             return ByPrefab(typeof(TInstaller), prefab);
         }
 
-        public GameObjectNameGroupNameBinder ByPrefab(Type installerType, UnityEngine.Object prefab)
+        public GameObjectNameGroupNameBinder ByPrefab(Type installerType, GameObject prefab)
         {
             BindingUtil.AssertIsValidPrefab(prefab);
             BindingUtil.AssertIsIInstallerType(installerType);

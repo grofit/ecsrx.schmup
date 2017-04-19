@@ -6,6 +6,11 @@ namespace Assets.Game.InGame
 {
     public class InGameApplication : EcsRxApplication
     {
+        protected override void ApplicationStarting()
+        {
+            RegisterAllBoundSystems();
+        }
+
         protected override void ApplicationStarted()
         {
             var destructablePool = PoolManager.GetPool(PoolConfigurations.DestructablesPool);

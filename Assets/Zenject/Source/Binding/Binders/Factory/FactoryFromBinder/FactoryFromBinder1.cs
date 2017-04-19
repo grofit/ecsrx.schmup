@@ -1,5 +1,6 @@
 using System;
-using System.Collections.Generic;
+using ModestTree;
+using System.Linq;
 
 namespace Zenject
 {
@@ -25,7 +26,7 @@ namespace Zenject
             where TSubFactory : IFactory<TParam1, TContract>
         {
             SubFinalizer = CreateFinalizer(
-                (container) => new FactoryProvider<TParam1, TContract, TSubFactory>(container, new List<TypeValuePair>()));
+                (container) => new FactoryProvider<TParam1, TContract, TSubFactory>(container));
 
             return this;
         }
@@ -42,3 +43,4 @@ namespace Zenject
         }
     }
 }
+

@@ -10,12 +10,12 @@ namespace Zenject
     public class PrefabBindingFinalizer : ProviderBindingFinalizer
     {
         readonly GameObjectBindInfo _gameObjectBindInfo;
-        readonly UnityEngine.Object _prefab;
+        readonly GameObject _prefab;
 
         public PrefabBindingFinalizer(
             BindInfo bindInfo,
             GameObjectBindInfo gameObjectBindInfo,
-            UnityEngine.Object prefab)
+            GameObject prefab)
             : base(bindInfo)
         {
             _gameObjectBindInfo = gameObjectBindInfo;
@@ -114,7 +114,7 @@ namespace Zenject
                 case ScopeTypes.Singleton:
                 {
                     RegisterProviderPerContract(
-                        container,
+                        container, 
                         (_, contractType) => container.SingletonProviderCreator.CreateProviderForPrefab(
                             _prefab,
                             contractType,
@@ -127,7 +127,7 @@ namespace Zenject
                 case ScopeTypes.Transient:
                 {
                     RegisterProviderPerContract(
-                        container,
+                        container, 
                         (_, contractType) =>
                             CreateProviderForType(
                                 contractType,
@@ -150,7 +150,7 @@ namespace Zenject
                             new PrefabProvider(_prefab)));
 
                     RegisterProviderPerContract(
-                        container,
+                        container, 
                         (_, contractType) =>
                             new CachedProvider(
                                 CreateProviderForType(contractType, prefabCreator)));

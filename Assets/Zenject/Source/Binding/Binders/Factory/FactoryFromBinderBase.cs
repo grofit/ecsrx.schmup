@@ -139,7 +139,7 @@ namespace Zenject
             return this;
         }
 
-        public GameObjectNameGroupNameBinder FromPrefab(UnityEngine.Object prefab)
+        public GameObjectNameGroupNameBinder FromPrefab(GameObject prefab)
         {
             BindingUtil.AssertIsValidPrefab(prefab);
 

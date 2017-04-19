@@ -44,7 +44,7 @@ namespace Zenject
 
         public FromBinderNonGeneric To(IEnumerable<Type> concreteTypes)
         {
-            BindingUtil.AssertIsDerivedFromTypes(concreteTypes, BindInfo.ContractTypes, BindInfo.InvalidBindResponse);
+            BindingUtil.AssertIsDerivedFromTypes(concreteTypes, BindInfo.ContractTypes);
 
             BindInfo.ToChoice = ToChoices.Concrete;
             BindInfo.ToTypes = concreteTypes.ToList();
@@ -58,16 +58,12 @@ namespace Zenject
         {
             var bindInfo = new ConventionBindInfo();
 
-            // This is nice because it allows us to do things like Bind(all interfaces).To(specific types)
-            // instead of having to do Bind(all interfaces).To(specific types that inherit from one of these interfaces)
-            BindInfo.InvalidBindResponse = InvalidBindResponses.Skip;
+            // Automatically filter by the given contract types
+            bindInfo.AddTypeFilter(
+                concreteType => BindInfo.ContractTypes.All(contractType => concreteType.DerivesFromOrEqual(contractType)));
 
             generator(new ConventionSelectTypesBinder(bindInfo));
-
-            BindInfo.ToChoice = ToChoices.Concrete;
-            BindInfo.ToTypes = bindInfo.ResolveTypes();
-
-            return this;
+            return To(bindInfo.ResolveTypes());
         }
 #endif
     }
