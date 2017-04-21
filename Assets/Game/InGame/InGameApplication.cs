@@ -1,8 +1,8 @@
-﻿using Assets.Game.InGame.Blueprint;
-using Assets.Game.InGame.Configurations;
-using EcsRx.Unity;
+﻿using EcsRx.Unity;
+using Game.InGame.Blueprint;
+using Game.InGame.Configurations;
 
-namespace Assets.Game.InGame
+namespace Game.InGame
 {
     public class InGameApplication : EcsRxApplication
     {
@@ -16,6 +16,8 @@ namespace Assets.Game.InGame
             var destructablePool = PoolManager.GetPool(PoolConfigurations.DestructablesPool);
 
             destructablePool.CreateEntity(new PlayerBlueprint());
+
+            destructablePool.CreateEntity(new EnemyBlueprint());
         }
     }
 }

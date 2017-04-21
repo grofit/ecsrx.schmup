@@ -1,6 +1,6 @@
 ﻿using EcsRx.Entities;
 
-namespace Assets.Game.InGame.Events
+namespace Game.InGame.Events
 {
     public class DestructableHitEvent
     {

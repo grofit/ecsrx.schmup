@@ -1,9 +1,7 @@
-﻿using System;
-using EcsRx.Components;
-using UniRx;
+﻿using EcsRx.Components;
 using UnityEngine;
 
-namespace Assets.Game.InGame.Components
+namespace Game.InGame.Components
 {
     public class MovementComponent : IComponent
     {

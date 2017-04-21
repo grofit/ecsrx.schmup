@@ -1,14 +1,11 @@
-﻿using Assets.Game.InGame.Components;
-using EcsRx.Entities;
-using EcsRx.Events;
+﻿using EcsRx.Entities;
 using EcsRx.Groups;
-using EcsRx.Pools;
 using EcsRx.Unity.Components;
 using EcsRx.Unity.Systems;
+using Game.InGame.Components;
 using UnityEngine;
-using Zenject;
 
-namespace Assets.Game.InGame.ViewResolvers
+namespace Game.InGame.ViewResolvers
 {
     public class PlayerViewResolver : ViewResolverSystem
     {

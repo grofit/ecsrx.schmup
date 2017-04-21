@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.3f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -176,11 +178,14 @@
     <Compile Include="Assets\EcsRx\Unity\ViewPooling\IViewPool.cs" />
     <Compile Include="Assets\EcsRx\Unity\ViewPooling\ViewObjectContainer.cs" />
     <Compile Include="Assets\EcsRx\Unity\ViewPooling\ViewPool.cs" />
+    <Compile Include="Assets\Game\InGame\Blueprint\EnemyBlueprint.cs" />
     <Compile Include="Assets\Game\InGame\Blueprint\ExplosionBlueprint.cs" />
     <Compile Include="Assets\Game\InGame\Blueprint\PlayerBlueprint.cs" />
     <Compile Include="Assets\Game\InGame\Blueprint\ProjectileBlueprint.cs" />
+    <Compile Include="Assets\Game\InGame\Components\AIInputComponent.cs" />
     <Compile Include="Assets\Game\InGame\Components\CanFireComponent.cs" />
     <Compile Include="Assets\Game\InGame\Components\DestructableComponent.cs" />
+    <Compile Include="Assets\Game\InGame\Components\EnemyComponent.cs" />
     <Compile Include="Assets\Game\InGame\Components\ExplosionComponent.cs" />
     <Compile Include="Assets\Game\InGame\Components\MovementComponent.cs" />
     <Compile Include="Assets\Game\InGame\Components\PlayerComponent.cs" />
@@ -196,7 +201,9 @@
     <Compile Include="Assets\Game\InGame\Systems\FiringSystem.cs" />
     <Compile Include="Assets\Game\InGame\Systems\MovementSystem.cs" />
     <Compile Include="Assets\Game\InGame\Systems\ProjectileSystem.cs" />
+    <Compile Include="Assets\Game\InGame\Systems\StandardInputSystem - Copy.cs" />
     <Compile Include="Assets\Game\InGame\Systems\StandardInputSystem.cs" />
+    <Compile Include="Assets\Game\InGame\ViewResolvers\EnemyViewResolver.cs" />
     <Compile Include="Assets\Game\InGame\ViewResolvers\ExplosionViewResolver.cs" />
     <Compile Include="Assets\Game\InGame\ViewResolvers\PlayerViewResolver.cs" />
     <Compile Include="Assets\Game\InGame\ViewResolvers\ProjectileViewResolver.cs" />

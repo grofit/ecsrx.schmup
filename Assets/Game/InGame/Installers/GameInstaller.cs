@@ -1,8 +1,8 @@
-﻿using Assets.Game.InGame.Configurations;
-using EcsRx.Pools;
+﻿using EcsRx.Pools;
+using Game.InGame.Configurations;
 using Zenject;
 
-namespace Assets.Game.InGame.Installers
+namespace Game.InGame.Installers
 {
     public class GameInstaller : MonoInstaller
     {

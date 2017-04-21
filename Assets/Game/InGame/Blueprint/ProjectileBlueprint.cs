@@ -1,10 +1,10 @@
-﻿using Assets.Game.InGame.Components;
-using EcsRx.Blueprints;
+﻿using EcsRx.Blueprints;
 using EcsRx.Entities;
 using EcsRx.Unity.Components;
+using Game.InGame.Components;
 using UnityEngine;
 
-namespace Assets.Game.InGame.Blueprint
+namespace Game.InGame.Blueprint
 {
     public class ProjectileBlueprint : IBlueprint
     {

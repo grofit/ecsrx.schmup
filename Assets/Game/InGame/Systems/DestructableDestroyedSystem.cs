@@ -1,13 +1,13 @@
-﻿using Assets.Game.InGame.Blueprint;
-using Assets.Game.InGame.Components;
-using Assets.Game.InGame.Configurations;
-using EcsRx.Entities;
+﻿using EcsRx.Entities;
 using EcsRx.Groups;
 using EcsRx.Pools;
 using EcsRx.Systems;
+using Game.InGame.Blueprint;
+using Game.InGame.Components;
+using Game.InGame.Configurations;
 using UniRx;
 
-namespace Assets.Game.InGame.Systems
+namespace Game.InGame.Systems
 {
     public class DestructableDestroyedSystem : IReactToEntitySystem
     {

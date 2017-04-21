@@ -1,7 +1,7 @@
 ﻿using EcsRx.Components;
 using UnityEngine;
 
-namespace Assets.Game.InGame.Components
+namespace Game.InGame.Components
 {
     public class ProjectileComponent : IComponent
     {

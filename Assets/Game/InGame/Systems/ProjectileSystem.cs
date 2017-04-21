@@ -1,14 +1,14 @@
-using Assets.Game.InGame.Components;
-using Assets.Game.InGame.Configurations;
 using EcsRx.Entities;
 using EcsRx.Groups;
 using EcsRx.Pools;
 using EcsRx.Systems;
 using EcsRx.Unity.Components;
+using Game.InGame.Components;
+using Game.InGame.Configurations;
 using UniRx;
 using UnityEngine;
 
-namespace Assets.Game.InGame.Systems
+namespace Game.InGame.Systems
 {
     public class ProjectileSystem : IReactToGroupSystem
     {

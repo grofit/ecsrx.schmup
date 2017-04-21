@@ -2,7 +2,7 @@
 using EcsRx.Components;
 using UniRx;
 
-namespace Assets.Game.InGame.Components
+namespace Game.InGame.Components
 {
     public class DestructableComponent : IComponent, IDisposable
     {

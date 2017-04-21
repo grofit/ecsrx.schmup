@@ -1,12 +1,12 @@
-﻿using Assets.Game.InGame.Components;
-using EcsRx.Entities;
+﻿using EcsRx.Entities;
 using EcsRx.Groups;
 using EcsRx.Systems;
 using EcsRx.Unity.Components;
+using Game.InGame.Components;
 using UniRx;
 using UnityEngine;
 
-namespace Assets.Game.InGame.Systems
+namespace Game.InGame.Systems
 {
     public class MovementSystem : IReactToGroupSystem
     {

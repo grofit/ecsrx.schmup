@@ -1,8 +1,8 @@
-﻿using Assets.Game.InGame.Components;
-using EcsRx.Blueprints;
+﻿using EcsRx.Blueprints;
 using EcsRx.Entities;
+using Game.InGame.Components;
 
-namespace Assets.Game.InGame.Blueprint
+namespace Game.InGame.Blueprint
 {
     public class ExplosionBlueprint : IBlueprint
     {

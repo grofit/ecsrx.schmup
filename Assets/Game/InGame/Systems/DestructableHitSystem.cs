@@ -1,9 +1,9 @@
-﻿using Assets.Game.InGame.Components;
-using Assets.Game.InGame.Events;
-using EcsRx.Events;
+﻿using EcsRx.Events;
 using EcsRx.Systems.Custom;
+using Game.InGame.Components;
+using Game.InGame.Events;
 
-namespace Assets.Game.InGame.Systems
+namespace Game.InGame.Systems
 {
     public class DestructableHitSystem : EventReactionSystem<DestructableHitEvent>
     {

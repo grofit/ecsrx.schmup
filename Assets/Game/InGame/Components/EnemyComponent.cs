@@ -2,7 +2,8 @@
 
 namespace Game.InGame.Components
 {
-    public class StandardInputComponent : IComponent
+    public class EnemyComponent : IComponent
     {
+        
     }
 }

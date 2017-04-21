@@ -1,4 +1,4 @@
-﻿namespace Assets.Game.InGame.Configurations
+﻿namespace Game.InGame.Configurations
 {
     public static class PoolConfigurations
     {

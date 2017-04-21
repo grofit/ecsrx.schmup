@@ -1,6 +1,6 @@
 ﻿using EcsRx.Components;
 
-namespace Assets.Game.InGame.Components
+namespace Game.InGame.Components
 {
     public class PlayerComponent : IComponent
     {
